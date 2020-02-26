@@ -1,6 +1,7 @@
 const express = require('express');
 
 const app = express();
+const route = express.Router();
 
 const PORT = process.env.PORT || 3000;
 
@@ -15,6 +16,10 @@ app.use(function(req, res, next) {
 app.get('/api', (req, res) => {
     res.send(message);
     console.log(req.host);
+})
+
+route.route('/toto').post((req, res) => {
+    res.send(req);
 })
 
 app.listen( PORT, () => { console.log(`Running on port ${ PORT }`) });
