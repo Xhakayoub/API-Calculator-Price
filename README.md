@@ -1,5 +1,4 @@
-# homadataJs
-[![NPM Version][npm-image]][npm-url]
+# HOMADATA TEST
 
 ## Dependencies
 
