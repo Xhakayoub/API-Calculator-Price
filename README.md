@@ -21,3 +21,7 @@ To get the Node server running locally:
 - Install expressJs `npm install express --save`
 - Install Nodemon `npm install -g nodemon`
 - Install BodyParser `npm install body-parser`
+- To start the local server
+```bash
+$ nodemon script
+```
