@@ -1,5 +1,5 @@
 # homadataJs
-
+[![NPM Version][npm-image]][npm-url]
 
 ## Dependencies
 
