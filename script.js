@@ -35,15 +35,15 @@ app.use(function(req, res, next) {
 
 
 //  la verification de la valeur nombre de pieces, et le calcule si la valeur existe
-   if (typeof req.body.numberOfRooms != 'undefined'){
-       
-       var nor = req.body.numberOfRooms;
+   if (req.body.numberOfRooms != null){
+      
+          var nor = req.body.numberOfRooms;
        
           if(nor <= 2) finalPrice = finalPrice + (primaryPrice*0.05);
-                 
+               
           else if (nor == 3 || nor ==4) finalPrice = finalPrice + (primaryPrice*0.02);
              
-          else if (nor<=5) finalPrice = finalPrice - (primaryPrice*0.01);
+          else if (nor>=5) finalPrice = finalPrice - (primaryPrice*0.01);
                
    }
 //   console.log(`prix apres le calcule en focntion de nombre de pieces ${finalPrice}`);
@@ -51,13 +51,15 @@ app.use(function(req, res, next) {
 
 
 //  la verification de la valeur type, et le calcule si la valeur existe
-   if (typeof req.body.type != 'undefined'){
+   if (req.body.type != null){
+
     var type = req.body.type;
+
     switch(type){
-        case ('Maison'):
+        case ('1'):
             finalPrice = finalPrice + (primaryPrice*0.03);
             break;
-        case ('Appartement'):
+        case ('2'):
             finalPrice = finalPrice + (primaryPrice*0.05);
             break;
         default:{}
@@ -68,13 +70,15 @@ app.use(function(req, res, next) {
 
 
 //  la verification de la valeur etat du bien, et le calcule si la valeur existe
-   if (typeof req.body.status != 'undefined'){
+   if (req.body.status != null){
+
     var status = req.body.status;
+    
     switch(status){
-        case ("L'état du bien necessite des travaux"):
+        case ("1"):
             finalPrice = finalPrice - (primaryPrice*0.1);
             break;
-        case ("Refait à neuf"):
+        case ("2"):
             finalPrice = finalPrice + (primaryPrice*0.12);
             break;
         default:{}
